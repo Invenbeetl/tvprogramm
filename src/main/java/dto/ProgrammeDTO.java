@@ -8,8 +8,8 @@ import lombok.Setter;
 public class ProgrammeDTO extends BaseDTO {
 
     private String startDate;
+    private String stopDate;
     private String startTime;
     private String title;
-    private String description;
 
 }
