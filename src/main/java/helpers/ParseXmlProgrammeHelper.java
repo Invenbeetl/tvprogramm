@@ -29,7 +29,6 @@ public class ParseXmlProgrammeHelper {
         xmlInString = xmlInString.replace("<!DOCTYPE tv SYSTEM \"xmltv.dtd\">", "");
         saveStringToFile(xmlInString, LOCAL_FOLDER_TO_STORE_FILES, TEMPORARY_XML_FILE_NAME);
         try {
-            ProgrammeDTO programmeDTO = new ProgrammeDTO();
             File fXmlFile = new File(LOCAL_FOLDER_TO_STORE_FILES + TEMPORARY_XML_FILE_NAME);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -38,6 +37,7 @@ public class ParseXmlProgrammeHelper {
             NodeList nList = doc.getElementsByTagName("programme");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
+                ProgrammeDTO programmeDTO = new ProgrammeDTO();
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
